@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Канбан</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div id="shell-header"></div>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1>Канбан</h1>
+        <p>Быстрый обзор задач по статусам: что в работе, что на ревью и что уже готово.</p>
+      </section>
+
+      <section class="card">
+        <h2>Как использовать</h2>
+        <ul>
+          <li>Фиксируйте задачи и назначайте ответственных.</li>
+          <li>Обновляйте статус сразу после смены этапа.</li>
+          <li>Ставьте крайние сроки и краткие ссылки на детали.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Колонки</h2>
+        <p>Backlog → In progress → Review → Done. Минимум статусов, максимум прозрачности.</p>
+      </section>
+    </main>
+
+    <div id="shell-footer"></div>
+
+    <script type="module">
+      import { mountShell } from "../modules/shell.js";
+      mountShell();
+    </script>
+  </body>
+</html>

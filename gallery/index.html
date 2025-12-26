@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Галерея</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div id="shell-header"></div>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1>Галерея</h1>
+        <p>Лучшие кадры проекта: скриншоты, прототипы и визуальные находки.</p>
+      </section>
+
+      <section class="card">
+        <h2>Что добавить</h2>
+        <ul>
+          <li>Снимки ключевых экранов и новых функций.</li>
+          <li>Итерации дизайна с короткими пояснениями.</li>
+          <li>Фото с мероприятий или демо-дней.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Как оформить</h2>
+        <p>Используйте единый стиль подписей и указывайте источник. Так проще понять контекст и прогресс.</p>
+      </section>
+    </main>
+
+    <div id="shell-footer"></div>
+
+    <script type="module">
+      import { mountShell } from "../modules/shell.js";
+      mountShell();
+    </script>
+  </body>
+</html>

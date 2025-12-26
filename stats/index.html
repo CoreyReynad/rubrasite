@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Статистика</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div id="shell-header"></div>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1>Статистика</h1>
+        <p>Сводка по ключевым метрикам: прогресс задач, вовлеченность и качество релизов.</p>
+      </section>
+
+      <section class="card">
+        <h2>Срезы</h2>
+        <ul>
+          <li>Выполненные задачи за неделю и месяц.</li>
+          <li>Среднее время от идеи до релиза.</li>
+          <li>Количество активных участников.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Как обновлять данные</h2>
+        <p>Подгружайте свежие числа перед отчетами. Добавляйте источники и дату обновления, чтобы метрики были прозрачными.</p>
+      </section>
+    </main>
+
+    <div id="shell-footer"></div>
+
+    <script type="module">
+      import { mountShell } from "../modules/shell.js";
+      mountShell();
+    </script>
+  </body>
+</html>
