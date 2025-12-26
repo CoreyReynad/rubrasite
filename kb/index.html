@@ -12,22 +12,39 @@
     <main class="wrap">
       <section class="hero">
         <h1>База знаний</h1>
-        <p>Собрали заметки, инструкции и ссылки, чтобы быстрее включаться в проект.</p>
+        <p>Поиск статей, заметок и инструкций по проекту.</p>
       </section>
 
-      <section class="card">
-        <h2>Материалы</h2>
-        <ul>
-          <li>Короткий гайд по запуску и структуре проекта.</li>
-          <li>FAQ с типичными вопросами и решениями.</li>
-          <li>Ссылки на макеты, документы и обсуждения.</li>
-        </ul>
-      </section>
+      <section class="card kb-panel">
+        <div class="kb-filters">
+          <label class="kb-field">
+            <span>Поиск по заголовку</span>
+            <input type="search" id="kb-search" placeholder="Например, настройки окружения" />
+          </label>
+          <div class="kb-tags" id="kb-tags"></div>
+        </div>
 
-      <section class="card">
-        <h2>Правила обновления</h2>
-        <p>Добавляйте новые записи простым языком, с примерами и скриншотами при необходимости.</p>
-        <p>Каждый раздел должен помогать новичку разобраться без дополнительных вопросов.</p>
+        <div class="kb-layout">
+          <aside class="kb-sidebar">
+            <div class="kb-sidebar__header">
+              <h2>Папки</h2>
+            </div>
+            <div id="kb-folders" class="kb-tree" aria-live="polite"></div>
+          </aside>
+
+          <section class="kb-content" aria-live="polite">
+            <header class="kb-content__header">
+              <div>
+                <p class="kb-muted">Выбрана папка</p>
+                <h2 id="kb-active-folder">Все статьи</h2>
+              </div>
+              <div class="kb-count" id="kb-count"></div>
+            </header>
+
+            <div id="kb-articles" class="kb-articles"></div>
+            <p id="kb-empty" class="kb-muted" hidden>Нет статей по выбранным фильтрам.</p>
+          </section>
+        </div>
       </section>
     </main>
 
@@ -35,7 +52,10 @@
 
     <script type="module">
       import { mountShell } from "../modules/shell.js";
+      import { initKbPage } from "./kb.js";
+
       mountShell();
+      initKbPage();
     </script>
   </body>
 </html>
