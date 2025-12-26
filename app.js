@@ -1,7 +1,13 @@
 const statusEl = document.getElementById("status");
 const btn = document.getElementById("btn");
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
 
-btn.addEventListener("click", () => {
-  statusEl.textContent = "Готово: кнопка сработала ✅";
-});
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
+
+if (btn && statusEl) {
+  btn.addEventListener("click", () => {
+    statusEl.textContent = "Готово: кнопка сработала ✅";
+  });
+}
