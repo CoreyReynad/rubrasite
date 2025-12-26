@@ -7,16 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="wrap site-header__inner">
-        <a class="brand" href="index.html">Мой сайт</a>
-        <nav class="nav">
-          <a href="index.html">Главная</a>
-          <a href="project.html">Проект</a>
-          <a href="contacts.html">Контакты</a>
-        </nav>
-      </div>
-    </header>
+    <div id="shell-header"></div>
 
     <main class="wrap">
       <section class="hero">
@@ -40,12 +31,12 @@
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="wrap footer__inner">
-        <small>© <span id="year"></span></small>
-      </div>
-    </footer>
+    <div id="shell-footer"></div>
 
+    <script type="module">
+      import { mountShell } from "./modules/shell.js";
+      mountShell();
+    </script>
     <script src="app.js"></script>
   </body>
 </html>

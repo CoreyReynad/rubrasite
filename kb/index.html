@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>База знаний</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div id="shell-header"></div>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1>База знаний</h1>
+        <p>Собрали заметки, инструкции и ссылки, чтобы быстрее включаться в проект.</p>
+      </section>
+
+      <section class="card">
+        <h2>Материалы</h2>
+        <ul>
+          <li>Короткий гайд по запуску и структуре проекта.</li>
+          <li>FAQ с типичными вопросами и решениями.</li>
+          <li>Ссылки на макеты, документы и обсуждения.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Правила обновления</h2>
+        <p>Добавляйте новые записи простым языком, с примерами и скриншотами при необходимости.</p>
+        <p>Каждый раздел должен помогать новичку разобраться без дополнительных вопросов.</p>
+      </section>
+    </main>
+
+    <div id="shell-footer"></div>
+
+    <script type="module">
+      import { mountShell } from "../modules/shell.js";
+      mountShell();
+    </script>
+  </body>
+</html>
