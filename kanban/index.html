@@ -12,29 +12,61 @@
     <main class="wrap">
       <section class="hero">
         <h1>Канбан</h1>
-        <p>Быстрый обзор задач по статусам: что в работе, что на ревью и что уже готово.</p>
+        <p>Выберите доску и посмотрите, какие задачи в идеях, работе, ревью и релизе.</p>
+      </section>
+
+      <section class="card kanban-panel">
+        <div class="kanban-toolbar">
+          <div>
+            <p class="kanban-note">Данные берём из <code>/data/kanban.json</code>.</p>
+            <h2>Выбор доски</h2>
+            <p class="kanban-note">Превью карточек показывает только выбранные поля.</p>
+          </div>
+          <label class="kanban-select">
+            <span>Текущая доска</span>
+            <select id="kanban-board-select" aria-label="Выбрать доску">
+              <option>Загрузка...</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="kanban-preview">
+          <span class="kanban-pill">Поля превью</span>
+          <span id="kanban-preview-fields">—</span>
+        </div>
+
+        <p id="kanban-status" class="kanban-note">Загружаем данные...</p>
       </section>
 
       <section class="card">
-        <h2>Как использовать</h2>
-        <ul>
-          <li>Фиксируйте задачи и назначайте ответственных.</li>
-          <li>Обновляйте статус сразу после смены этапа.</li>
-          <li>Ставьте крайние сроки и краткие ссылки на детали.</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>Колонки</h2>
-        <p>Backlog → In progress → Review → Done. Минимум статусов, максимум прозрачности.</p>
+        <div id="kanban-board" class="kanban-board" aria-live="polite">
+          <div class="kanban-empty">Загрузка колонок...</div>
+        </div>
       </section>
     </main>
+
+    <div id="kanban-modal" class="kanban-modal" hidden>
+      <div class="kanban-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="kanban-modal-title">
+        <div class="kanban-modal__header">
+          <div>
+            <span class="kanban-meta__label">Карточка</span>
+            <h3 id="kanban-modal-title" class="kanban-modal__title"></h3>
+          </div>
+          <button type="button" class="kanban-modal__close button" data-close>Закрыть</button>
+        </div>
+        <ul id="kanban-modal-meta" class="kanban-modal__meta"></ul>
+        <div id="kanban-modal-details" class="kanban-modal__details"></div>
+      </div>
+    </div>
 
     <div id="shell-footer"></div>
 
     <script type="module">
       import { mountShell } from "../modules/shell.js";
+      import { initKanban } from "./kanban.js";
+
       mountShell();
+      initKanban();
     </script>
   </body>
 </html>
