@@ -5,6 +5,7 @@ const navItems = [
   { href: "kb/", label: "База знаний" },
   { href: "kanban/", label: "Канбан" },
   { href: "gallery/", label: "Галерея" },
+  { href: "random/", label: "Рандом" },
   { href: "stats/", label: "Статистика" },
 ];
 

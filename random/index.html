@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Рандом</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div id="shell-header"></div>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1>Рандом</h1>
+        <p>Слот-машина для выбора случайных победителей из списка.</p>
+      </section>
+
+      <section class="card random-panel">
+        <div class="random-grid">
+          <label class="random-field">
+            <span>Список вариантов (каждый с новой строки)</span>
+            <textarea id="random-list" rows="8" placeholder="Например:\nИмя 1\nИмя 2\nИмя 3"></textarea>
+          </label>
+
+          <div class="random-row">
+            <label class="random-upload button" for="random-file">
+              <input type="file" id="random-file" accept=".txt" hidden />
+              <span>Загрузить .txt</span>
+            </label>
+            <button type="button" id="random-clear" class="button button--ghost">Очистить поле</button>
+          </div>
+
+          <div class="random-row random-row--spread">
+            <label class="random-field">
+              <span>Количество победителей</span>
+              <select id="random-count">
+                <option value="1">1 (1 барабан)</option>
+                <option value="2">2 (2 барабана)</option>
+                <option value="3">3 (3 барабана)</option>
+              </select>
+            </label>
+            <button type="button" id="random-start" class="button random-start">Запустить слот</button>
+          </div>
+
+          <p id="random-status" class="random-status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Слот</h2>
+        <div class="slot-machine" aria-live="polite">
+          <div id="slot-drums" class="slot-drums"></div>
+        </div>
+        <div id="random-results" class="random-results" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <div id="shell-footer"></div>
+
+    <script type="module">
+      import { mountShell } from "../modules/shell.js";
+      import { initRandom } from "./random.js";
+      mountShell();
+      initRandom();
+    </script>
+  </body>
+</html>
