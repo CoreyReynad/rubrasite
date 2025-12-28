@@ -275,9 +275,13 @@ button:focus-visible,
   padding: 10px 12px;
   border-radius: 12px;
   border: 1px solid var(--border);
-  background: rgba(255,255,255,0.05);
+  background: var(--card);
   color: var(--text);
   font: inherit;
+}
+.kanban-select select option {
+  background: var(--card);
+  color: var(--text);
 }
 
 .kanban-preview {
@@ -340,6 +344,10 @@ button:focus-visible,
   background: rgba(255,255,255,0.03);
   border-radius: 12px;
   padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
   text-align: left;
   cursor: pointer;
   transition: border-color 0.2s ease, transform 0.08s ease, background 0.2s ease;
@@ -353,7 +361,7 @@ button:focus-visible,
 .kanban-card:active { transform: translateY(1px); }
 
 .kanban-card__title {
-  margin: 0 0 6px;
+  margin: 0;
   font-size: 16px;
 }
 
@@ -378,9 +386,7 @@ button:focus-visible,
 .kanban-card__meta {
   color: var(--muted);
   font-size: 13px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  display: block;
   margin: 0;
 }
 
