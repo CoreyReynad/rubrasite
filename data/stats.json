@@ -1,0 +1,17 @@
+{
+  "period": "Последние 7 дней",
+  "items": [
+    { "name": "User1", "messages": 220, "rewards": 7 },
+    { "name": "User2", "messages": 198, "rewards": 4 },
+    { "name": "User3", "messages": 165, "rewards": 6 },
+    { "name": "User4", "messages": 142, "rewards": 3 },
+    { "name": "User5", "messages": 133, "rewards": 5 },
+    { "name": "User6", "messages": 121, "rewards": 2 },
+    { "name": "User7", "messages": 118, "rewards": 1 },
+    { "name": "User8", "messages": 110, "rewards": 4 },
+    { "name": "User9", "messages": 96, "rewards": 2 },
+    { "name": "User10", "messages": 88, "rewards": 3 },
+    { "name": "User11", "messages": 74, "rewards": 1 },
+    { "name": "User12", "messages": 60, "rewards": 0 }
+  ]
+}

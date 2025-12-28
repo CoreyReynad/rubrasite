@@ -12,21 +12,48 @@
     <main class="wrap">
       <section class="hero">
         <h1>Статистика</h1>
-        <p>Сводка по ключевым метрикам: прогресс задач, вовлеченность и качество релизов.</p>
+        <p>Сводка по активности участников. Кликайте по колонкам, чтобы менять сортировку.</p>
       </section>
 
-      <section class="card">
-        <h2>Срезы</h2>
-        <ul>
-          <li>Выполненные задачи за неделю и месяц.</li>
-          <li>Среднее время от идеи до релиза.</li>
-          <li>Количество активных участников.</li>
-        </ul>
-      </section>
+      <section class="card stats-panel">
+        <div class="stats-header">
+          <div>
+            <p class="stats-note">Данные из <code>/data/stats.json</code></p>
+            <h2 id="stats-period" class="stats-period">Загружаем период...</h2>
+            <p class="stats-note">Сортировка доступна по столбцам «Сообщения» и «Награды».</p>
+          </div>
+          <div class="stats-legend">
+            <span class="stats-pill">Топ-10 по сообщениям</span>
+          </div>
+        </div>
 
-      <section class="card">
-        <h2>Как обновлять данные</h2>
-        <p>Подгружайте свежие числа перед отчетами. Добавляйте источники и дату обновления, чтобы метрики были прозрачными.</p>
+        <div class="stats-table-wrap" aria-live="polite">
+          <table class="stats-table">
+            <thead>
+              <tr>
+                <th scope="col">Участник</th>
+                <th scope="col">
+                  <button type="button" class="stats-sort" data-sort="messages" aria-sort="descending">
+                    Сообщения
+                    <span class="stats-sort__icon" aria-hidden="true">▼</span>
+                  </button>
+                </th>
+                <th scope="col">
+                  <button type="button" class="stats-sort" data-sort="rewards" aria-sort="none">
+                    Награды
+                    <span class="stats-sort__icon" aria-hidden="true"></span>
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="stats-table-body">
+              <tr>
+                <td colspan="3" class="stats-empty">Готовим таблицу...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="stats-status" class="stats-note">Загружаем данные...</p>
       </section>
     </main>
 
@@ -34,7 +61,10 @@
 
     <script type="module">
       import { mountShell } from "../modules/shell.js";
+      import { initStats } from "./stats.js";
+
       mountShell();
+      initStats();
     </script>
   </body>
 </html>
