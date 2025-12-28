@@ -15,26 +15,54 @@
         <p>Лучшие кадры проекта: скриншоты, прототипы и визуальные находки.</p>
       </section>
 
-      <section class="card">
-        <h2>Что добавить</h2>
-        <ul>
-          <li>Снимки ключевых экранов и новых функций.</li>
-          <li>Итерации дизайна с короткими пояснениями.</li>
-          <li>Фото с мероприятий или демо-дней.</li>
-        </ul>
+      <section class="card gallery-panel">
+        <div class="gallery-panel__header">
+          <div>
+            <p class="gallery-note">Данные берём из <code>/data/gallery.json</code>. Изображения загружаются по публичным URL.</p>
+            <h2>Фильтры</h2>
+          </div>
+        </div>
+
+        <div class="gallery-filters">
+          <label class="gallery-field">
+            <span>Поиск по названию</span>
+            <input type="search" id="gallery-search" placeholder="Например, Дашборд" />
+          </label>
+          <div class="gallery-tags" id="gallery-tags" aria-label="Фильтр по тегам"></div>
+        </div>
       </section>
 
       <section class="card">
-        <h2>Как оформить</h2>
-        <p>Используйте единый стиль подписей и указывайте источник. Так проще понять контекст и прогресс.</p>
+        <header class="gallery-grid__header">
+          <h2>Плитка</h2>
+          <p id="gallery-count" class="gallery-count"></p>
+        </header>
+        <div id="gallery-grid" class="gallery-grid" aria-live="polite"></div>
+        <p id="gallery-empty" class="gallery-empty" hidden>Нет карточек по заданным фильтрам.</p>
       </section>
     </main>
+
+    <div id="gallery-modal" class="gallery-modal" hidden>
+      <div class="gallery-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
+        <button type="button" class="gallery-modal__close button" data-close>Закрыть</button>
+        <figure class="gallery-modal__figure">
+          <img id="gallery-modal-image" src="" alt="" />
+          <figcaption>
+            <h3 id="gallery-modal-title"></h3>
+            <p id="gallery-modal-desc"></p>
+            <ul id="gallery-modal-tags" class="gallery-modal__tags"></ul>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
 
     <div id="shell-footer"></div>
 
     <script type="module">
       import { mountShell } from "../modules/shell.js";
+      import { initGallery } from "./gallery.js";
       mountShell();
+      initGallery();
     </script>
   </body>
 </html>
