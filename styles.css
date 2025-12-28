@@ -683,6 +683,82 @@ button:focus-visible,
   list-style: none;
 }
 
+.stats-panel { display: grid; gap: 12px; }
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.stats-period { margin: 4px 0 6px; font-size: 22px; }
+.stats-note { margin: 0; color: var(--muted); font-size: 14px; }
+.stats-note[data-state="error"] { color: #fecaca; }
+.stats-legend { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.stats-pill {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: rgba(110,231,255,0.08);
+  color: var(--text);
+  font-size: 13px;
+}
+.stats-table-wrap { overflow-x: auto; }
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 540px;
+}
+.stats-table th,
+.stats-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.stats-table th { text-align: left; font-weight: 600; }
+.stats-table tbody tr:last-child td { border-bottom: none; }
+.stats-table tbody tr.is-top { background: rgba(110,231,255,0.06); }
+.stats-name { display: flex; align-items: center; gap: 8px; }
+.stats-name__meta { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.stats-name__title { font-weight: 600; }
+.stats-rank {
+  width: 44px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  background: rgba(255,255,255,0.03);
+}
+.stats-number { text-align: right; font-variant-numeric: tabular-nums; }
+.stats-badge {
+  border: 1px solid rgba(110,231,255,0.5);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background: rgba(110,231,255,0.06);
+}
+.stats-empty {
+  text-align: center;
+  padding: 18px 10px;
+  color: var(--muted);
+}
+.stats-sort {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 0;
+}
+.stats-sort.is-active { color: var(--accent); }
+.stats-sort__icon { font-size: 12px; }
+
 @media (max-width: 640px) {
   .gallery-grid__header { flex-direction: column; align-items: flex-start; }
   .gallery-card__body h3 { font-size: 16px; }
