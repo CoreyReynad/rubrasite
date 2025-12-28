@@ -275,13 +275,13 @@ button:focus-visible,
   padding: 10px 12px;
   border-radius: 12px;
   border: 1px solid var(--border);
-  background: var(--card);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
   color: var(--text);
   font: inherit;
 }
 .kanban-select select option {
-  background: var(--card);
-  color: var(--text);
+  background: #0f1118;
+  color: #f4f6fb;
 }
 
 .kanban-preview {
@@ -344,9 +344,12 @@ button:focus-visible,
   background: rgba(255,255,255,0.03);
   border-radius: 12px;
   padding: 10px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: min-content;
+  grid-template-columns: 1fr;
+  align-items: start;
+  justify-items: start;
   gap: 8px;
   text-align: left;
   cursor: pointer;
@@ -369,6 +372,7 @@ button:focus-visible,
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -387,6 +391,7 @@ button:focus-visible,
   color: var(--muted);
   font-size: 13px;
   display: block;
+  width: 100%;
   margin: 0;
 }
 
