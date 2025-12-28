@@ -861,9 +861,184 @@ button:focus-visible,
   gap: 6px;
 }
 
+.slot-wrap { display: flex; flex-direction: column; gap: 18px; }
+.slot-card { padding: 18px 14px; }
+.slot-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+}
+.slot-card__header--compact { align-items: center; }
+.slot-actions,
+.slot-primary-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.slot-hint {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.slot-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr 260px;
+}
+.slot-field {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.slot-field textarea {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  font: inherit;
+  min-height: 200px;
+}
+.slot-mode {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255,255,255,0.02);
+}
+.slot-toggle { display: grid; gap: 8px; }
+.slot-toggle label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  color: var(--text);
+}
+.slot-toggle input { accent-color: var(--accent); }
+.slot-settings {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.slot-range { flex: 1; }
+.slot-range input[type="range"] { width: 100%; }
+.slot-range__header {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text);
+}
+.slot-range__value { color: var(--muted); font-variant-numeric: tabular-nums; }
+.slot-checkbox {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  color: var(--text);
+}
+.slot-checkbox input { accent-color: var(--accent); }
+.slot-status {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.slot-status[data-tone="error"] { color: #fecaca; }
+.slot-status[data-tone="success"] { color: #a7f3d0; }
+.slot-machine {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+}
+.slot-drums {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.slot-drum {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255,255,255,0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.slot-drum.is-spinning {
+  border-color: rgba(110,231,255,0.45);
+  box-shadow: 0 0 0 1px rgba(110,231,255,0.25);
+}
+.slot-drum__window {
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  height: 148px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255,255,255,0.02);
+}
+.slot-drum__highlight {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid rgba(110,231,255,0.35);
+  background: rgba(110,231,255,0.04);
+  pointer-events: none;
+}
+.slot-drum__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.16s ease-out;
+  will-change: transform;
+}
+.slot-drum__item {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid transparent;
+  text-align: center;
+  word-break: break-word;
+}
+.slot-drum__item.is-active {
+  border-color: rgba(110,231,255,0.4);
+  background: rgba(110,231,255,0.08);
+  color: var(--text);
+}
+.slot-drum__label {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.slot-results { min-height: 40px; }
+.slot-winners {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+}
+.slot-help {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+}
+
 @media (max-width: 640px) {
   .gallery-grid__header { flex-direction: column; align-items: flex-start; }
   .gallery-card__body h3 { font-size: 16px; }
   .random-row--spread { flex-direction: column; align-items: flex-start; }
   .random-start { width: 100%; }
+  .slot-card__header { flex-direction: column; align-items: flex-start; }
+  .slot-grid { grid-template-columns: 1fr; }
+  .slot-actions, .slot-primary-actions { width: 100%; }
+  .slot-primary-actions button { flex: 1; justify-content: center; }
 }
