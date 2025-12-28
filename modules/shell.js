@@ -6,6 +6,7 @@ const navItems = [
   { href: "kanban/", label: "Канбан" },
   { href: "gallery/", label: "Галерея" },
   { href: "random/", label: "Рандом" },
+  { href: "slot/", label: "Слот-машина" },
   { href: "stats/", label: "Статистика" },
 ];
 

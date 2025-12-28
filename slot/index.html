@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Слот-машина</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div id="shell-header"></div>
+
+    <main class="wrap slot-wrap">
+      <section class="hero">
+        <h1>Слот-машина</h1>
+        <p>Случайный выбор вариантов. Это не азартная игра, а удобный рандомайзер со списком.</p>
+      </section>
+
+      <section class="card slot-card">
+        <div class="slot-card__header">
+          <div>
+            <h2>Варианты</h2>
+            <p class="slot-hint">Каждая строка — отдельный пункт. Пустые строки игнорируются, дубликаты удаляются.</p>
+          </div>
+          <div class="slot-actions">
+            <label class="button slot-upload" for="slot-file">
+              <input type="file" id="slot-file" accept=".txt" hidden />
+              <span>Загрузить .txt</span>
+            </label>
+            <button type="button" id="slot-reset" class="button button--ghost">Сброс</button>
+          </div>
+        </div>
+
+        <div class="slot-grid">
+          <label class="slot-field">
+            <span>Список вариантов</span>
+            <textarea id="slot-options" rows="10" placeholder="Например:&#10;Имя 1&#10;Имя 2&#10;Имя 3"></textarea>
+          </label>
+
+          <div class="slot-field slot-mode">
+            <span>Режим загрузки .txt</span>
+            <div class="slot-toggle">
+              <label>
+                <input type="radio" name="slot-mode" value="replace" checked />
+                <span>Заменить список</span>
+              </label>
+              <label>
+                <input type="radio" name="slot-mode" value="append" />
+                <span>Добавить к списку</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card slot-card">
+        <div class="slot-card__header">
+          <div>
+            <h2>Настройки</h2>
+            <p class="slot-hint">Сохранение списка и количества барабанов происходит автоматически в браузере.</p>
+          </div>
+          <div class="slot-primary-actions">
+            <button type="button" id="slot-spin" class="button slot-spin">Крутить</button>
+            <button type="button" id="slot-stop" class="button button--ghost" disabled>Стоп</button>
+          </div>
+        </div>
+
+        <div class="slot-settings">
+          <label class="slot-field slot-range">
+            <div class="slot-range__header">
+              <span>Количество барабанов</span>
+              <span class="slot-range__value"><span id="slot-drum-value">3</span> / 5</span>
+            </div>
+            <input type="range" id="slot-drum-count" min="1" max="5" value="3" />
+          </label>
+
+          <label class="slot-checkbox">
+            <input type="checkbox" id="slot-unique" checked />
+            <span>Без повторов</span>
+          </label>
+        </div>
+
+        <p id="slot-status" class="slot-status" aria-live="polite"></p>
+      </section>
+
+      <section class="card slot-card">
+        <div class="slot-card__header">
+          <div>
+            <h2>Слот-машина</h2>
+            <p class="slot-hint">Барабаны крутятся с разной скоростью, подсвечивается активная строка.</p>
+          </div>
+        </div>
+        <div class="slot-machine" aria-live="polite">
+          <div id="slot-drums" class="slot-drums"></div>
+        </div>
+      </section>
+
+      <section class="card slot-card">
+        <div class="slot-card__header slot-card__header--compact">
+          <div>
+            <h2>Результаты</h2>
+            <p class="slot-hint">Появятся после остановки всех барабанов.</p>
+          </div>
+          <button type="button" id="slot-copy" class="button button--ghost" disabled>Скопировать результаты</button>
+        </div>
+        <div id="slot-results" class="slot-results" aria-live="polite"></div>
+      </section>
+
+      <section class="card slot-card">
+        <h2>Как пользоваться</h2>
+        <ul class="slot-help">
+          <li>Вставьте варианты в поле или загрузите .txt. Пустые строки удалятся, совпадения уберутся автоматически.</li>
+          <li>Выберите количество барабанов и решите, можно ли повторять результаты. Если вариантов меньше, чем барабанов при запрете повторов — слот не запустится.</li>
+          <li>Нажмите «Крутить», дождитесь остановки барабанов, затем при необходимости скопируйте результаты.</li>
+        </ul>
+      </section>
+    </main>
+
+    <div id="shell-footer"></div>
+
+    <script type="module">
+      import { mountShell } from "../modules/shell.js";
+      import { initSlot } from "../modules/slot/slot.js";
+      mountShell();
+      initSlot();
+    </script>
+  </body>
+</html>
